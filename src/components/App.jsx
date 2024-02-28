@@ -5,7 +5,7 @@ function App() {
     <div>
       <h1>Bienvenido {API_URL} </h1>
       <p>Estas en un sitio de desarollo</p>
-      <p>y es la dev branch</p>
+      <p>Estoy en la dev branch</p>
     </div>
   );
 }
