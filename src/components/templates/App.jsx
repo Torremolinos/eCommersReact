@@ -1,11 +1,10 @@
-import { API_URL } from "../../constants/env";
-
+import { Outlet } from "react-router-dom";
+import MainHeader from "../organisms/MainHeader";
 function App() {
   return (
     <div>
-      <h1>Bienvenido {API_URL} </h1>
-      <p>Estas en un sitio de desarollo</p>
-      <p>Estoy en la dev branch</p>
+      <MainHeader />
+      <Outlet/>
     </div>
   );
 }
