@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Error404 from "../components/pages/Error404";
 import Home from "../components/pages/Home";
-import About from "../components/pages/About";
 import App from "../components/templates/App";
+import Products from "../components/pages/Products";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,8 +16,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/productos",
-        element: <About />,
-      },
+        element: <Products />,
+      }
     ],
   },
 ]);
