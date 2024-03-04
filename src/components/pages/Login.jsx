@@ -1,5 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../../constants/env";
+import { setToken } from "../../helpers/auth";
 
 const Login = () => {
 
@@ -10,9 +11,9 @@ const Login = () => {
             password: e.target.password.value
         }
         axios.post(`${API_URL}/public/login`, data)
-        .then(response => localStorage.setItem('tokenCommerce', response.data.data.token)
-        .catch(error => console.log(error))
-        )
+        .then(response => setToken(response.data.data.token))
+        .catch(error => console.log(error));
+        
     }
 
   return (
