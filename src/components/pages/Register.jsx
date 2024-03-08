@@ -1,11 +1,9 @@
 import axios from "axios";
 import { API_URL } from "../../constants/env";
-import { setToken } from "../../helpers/auth";
 import { Link, useNavigate } from "react-router-dom";
-
 import { useState } from "react";
 import LoginTemplate from "../templates/LoginTemplate";
-const Login = () => {
+const Register = () => {
   //Utilizar redirecciones de React Router
 
   const nav = useNavigate();
@@ -20,12 +18,15 @@ const Login = () => {
     const data = {
       email: e.target.email.value,
       password: e.target.password.value,
+      details:{
+        fullname: e.target.fullname.value,
+      }
     };
     axios
-      .post(`${API_URL}/public/login`, data)
+      .post(`${API_URL}/public/users`, data)
       .then((response) => {
         setToken(response.data.data.token); //Guardar el token en el local storage
-        nav("/"); //Redireccionar a la página de inicio
+        nav("/login"); //Redireccionar a la página de inicio
       })
       /*si el email es incorrecto*/
 
@@ -36,8 +37,16 @@ const Login = () => {
   };
 
   return (
-    <LoginTemplate title="Iniciar Sesión">
+    <LoginTemplate title="Registrate">
       <form onSubmit={handleSubmit}>
+                      <div className="mb-4">
+                        <input
+                          type="text"
+                          placeholder="Nombre completo"
+                          name="fullname"
+                          required
+                        />
+                      </div>
                       <div className="mb-4">
                         <input
                           type="email"
@@ -56,10 +65,10 @@ const Login = () => {
                       </div>
                       <div className="text-center pt-1 mb-12 pb-1">
                         <button className="bg-gradient w-full text-white rounded-full">
-                          Ingresar
+                             Crear cuenta
                         </button>
-                        <Link className="text-gray-500" to="/registro">
-                          ¿Deseas registrarte? Haz clic aquí
+                        <Link className="text-gray-500" to="/login">
+                          ¿Ya tienes cuenta? Haz clic aquí
                         </Link>
                       </div>
                       {error && (
@@ -72,7 +81,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 
 
 
