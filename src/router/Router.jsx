@@ -4,6 +4,7 @@ import Home from "../components/pages/Home";
 import App from "../components/templates/App";
 import Products from "../components/pages/Products";
 import Login from "../components/pages/Login";
+import Register from "../components/pages/Register";
 
 const router = createBrowserRouter([
   {

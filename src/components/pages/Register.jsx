@@ -3,6 +3,7 @@ import { API_URL } from "../../constants/env";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LoginTemplate from "../templates/LoginTemplate";
+
 const Register = () => {
   //Utilizar redirecciones de React Router
 
@@ -24,12 +25,10 @@ const Register = () => {
     };
     axios
       .post(`${API_URL}/public/users`, data)
-      .then((response) => {
-        setToken(response.data.data.token); //Guardar el token en el local storage
+      .then(() => {
         nav("/login"); //Redireccionar a la página de inicio
       })
       /*si el email es incorrecto*/
-
       .catch((err) => {
         setError(err);
         console.log(err);
