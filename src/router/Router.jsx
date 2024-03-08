@@ -5,7 +5,7 @@ import App from "../components/templates/App";
 import Products from "../components/pages/Products";
 import Login from "../components/pages/Login";
 import Register from "../components/pages/Register";
-
+import Form from "../components/pages/admin/products/Form";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/registro",
     element: <Register />,
+  },
+  {
+    path: "/admin/productos/crear",
+    element: <Form />,
   },
 ]);
 

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_URL } from "../constants/env";
 import { useEffect, useState } from "react";
 
 const useFetch = (endpoint, headers = {}) => {
