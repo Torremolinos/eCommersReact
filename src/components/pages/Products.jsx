@@ -1,10 +1,11 @@
 import useFetch from "../../hooks/useFetch";
 import React from "react";
 import ProductCard from "../molecules/ProductCard";
+import Loader from "../atoms/Loader";
 const Products = () => {
   const { data, error, loading } = useFetch("public/products");
   if (loading) {
-    return <p>Cargando...</p>;
+    return <Loader />;
   }
   if (error) {
     return <p>Error en la peticion de productos...</p>;
